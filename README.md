@@ -37,6 +37,7 @@ The site is mobile responsive; the design is clean taking into account the users
 ![Screenshot](./client/src/images/3Demo/landingPage.JPG)
 ![SignUp](./client/src/images/3Demo/signUpModal.JPG)
 ![Properties](./client/src/images/3Demo/propertiesPage.JPG)
+![Zillow](./client/src/images/3Demo/ZillowZestimate.JPG)
 
 
 
