@@ -84,12 +84,12 @@ app.post("/api/newProperty", auth.required, function (req, res) {
 
 
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static(path.join(__dirname, 'client/build/properties')));
 
 
 
-app.get("/properties-details", function (req, res) {
-  res.sendFile(path.join(__dirname, "public/properties-details.html"));
+
+app.get("/properties", function (req, res) {
+  res.sendFile(path.join(__dirname, "/client/src/pages/properties"));
 });
 
 app.post("/api/", function (req, res) {
