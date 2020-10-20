@@ -84,7 +84,7 @@ app.post("/api/newProperty", auth.required, function (req, res) {
 
 
 app.use(express.static(path.join(__dirname, 'client/build')));
-
+app.use(express.static(path.join(__dirname, 'client/build/properties')));
 
 
 
