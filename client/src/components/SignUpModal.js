@@ -80,7 +80,7 @@ export default function SignUpModal(props) {
           </Form.Group>
 
 
-          <Button variant="primary" type="submit" to='/prperties' onClick={props.onHide} >
+          <Button variant="primary" type="submit" to='/properties' onClick={props.onHide} >
             Sign Up
           </Button>
 
