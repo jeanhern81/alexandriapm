@@ -87,11 +87,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 
-
-app.get("/properties", function (req, res) {
-  res.sendFile(path.join(__dirname, "/client/src/pages/properties"));
-});
-
 app.post("/api/", function (req, res) {
   var userId = JSON.parse(req.body.user_Id)
   console.log(req.body.user_Id)
