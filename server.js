@@ -157,7 +157,7 @@ app.put("/api/properties", function (req, res) {
 
 app.get("/zillowCall/", async (req, res) => {
   console.log(req.query);
-  var locationArray = req.query.locationArray;
+
   // let address = "3128 MULBERRY STREET";
   // let citystate = "RIVERSIDE CA";
   let address = req.query.address;
@@ -165,7 +165,7 @@ app.get("/zillowCall/", async (req, res) => {
 
   axios({
     "method": "GET",
-    "url": `http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1dxir1f12bv_6bk45&address=${address}&citystatezip=${citystate}&rentzestimate=true`,
+    "url": `http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${process.env.Zill_KEY}&address=${address}&citystatezip=${citystate}&rentzestimate=true`,
 
     // "headers": {
     //   "content-type": "application/octet-stream",
