@@ -262,7 +262,7 @@ function PropertyList(props) {
               {/* Delete button */}
               <Button className="deleteProp"
                 key={result._id}
-                variant="danger" size="sm"
+                variant="danger" size="sm" style={{ color: 'white' }}
                 to="/DeleteProp"
                 onClick={() => { getDeleteData(result._id) }}
               >
