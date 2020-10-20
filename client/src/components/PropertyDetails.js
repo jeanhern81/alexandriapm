@@ -69,9 +69,9 @@ export class PropertyDetailsModal extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>No Data</td>
-                    <td>No Data</td>
-                    <td>No Data</td>
+                    <td>$ {this.props.zestimate}</td>
+                    <td>$ {this.props.highvaluelimit}</td>
+                    <td>$ {this.props.lowvaluelimit}</td>
                   </tr>
                 </tbody>
               </Table>
@@ -91,9 +91,9 @@ export class PropertyDetailsModal extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>No Data</td>
-                    <td>No Data</td>
-                    <td>No Data</td>
+                    <td>$ {this.props.rentzestimate}</td>
+                    <td>$ {this.props.renthighvalue}</td>
+                    <td>$ {this.props.rentlowvalue}</td>
                   </tr>
                 </tbody>
               </Table>
