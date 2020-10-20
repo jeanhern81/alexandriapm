@@ -83,6 +83,9 @@ app.post("/api/newProperty", auth.required, function (req, res) {
 
 
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
 
 
 app.get("/properties-details", function (req, res) {
