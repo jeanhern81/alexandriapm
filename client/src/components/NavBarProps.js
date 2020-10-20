@@ -18,7 +18,7 @@ class NavBarProps extends Component {
         let addContactModalClose = () => this.setState({ addContactModalShow: false });
 
         return (
-            <div clssName='NavB'>
+            <div className='NavB'>
 
                 <Navbar className='color-nav' expand="lg">
                     <Navbar.Brand href="/"><Image src={require('../images/Alexandria-logo-BW.png')} style={{ width: '50%', float: 'left' }} id='loginAlexLogo' alt='Alexandria Logo' /> </Navbar.Brand>

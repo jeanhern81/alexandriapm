@@ -34,9 +34,9 @@ The site is mobile responsive; the design is clean taking into account the users
 
 ## Demo 
 
-![Screenshot](./src/images/3Demo/landingPage.JPG)
-![SignUp](./src/images/3Demo/signUpModal.JPG)
-![Properties](./src/images/3Demo/propertiesPage.JPG)
+![Screenshot](./client/src/images/3Demo/landingPage.JPG)
+![SignUp](./client/src/images/3Demo/signUpModal.JPG)
+![Properties](./client/src/images/3Demo/propertiesPage.JPG)
 
 
 
@@ -70,8 +70,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 ## Developers: 
-
-* <a href="https://github.com/leetsao1"> Isaac Tsao </a>
+* <a href="https://github.com/jeanhern81">Jeanette Hernandez </a>
 * <a href="https://github.com/goisonberry"> Gerson Marroquin </a>
 * <a href="https://github.com/jdlevish"> Josh Levish </a>
-* <a href="https://github.com/jeanhern81">Jeanette Hernandez </a>
+* <a href="https://github.com/leetsao1"> Isaac Tsao </a>

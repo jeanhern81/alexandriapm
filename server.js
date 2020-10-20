@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 //const cors = require('cors');
 const mongoose = require('mongoose');
-const passport = require("passport")
+const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const xml2js = require('xml2js');
 const auth = require('./server/routes/auth');
@@ -49,7 +49,7 @@ require('./server/config/passport');
 app.use(require('./server/routes'));
 
 // mongo connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://jeanhern81:Mercury35@cluster0.t2lsa.mongodb.net/alexandria?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Mercury35:Jh159@cluster0.vbvyx.mongodb.net/alexandria?retryWrites=true&w=majority');
 mongoose.set('debug', true);
 
 
