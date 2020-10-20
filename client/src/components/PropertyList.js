@@ -39,6 +39,16 @@ function PropertyList(props) {
     rent: "",
     _id: "",
   });
+  const [details, setdetails] = useState({
+    zestimate: "",
+    highvaluelimit: "",
+    lowvaluelimit: "",
+    rentzestimate: "",
+    renthighvalue: "",
+    rentlowvalue: "",
+
+  });
+
 
   //Delete Button Modal //
   const [DeletePropState, setDeletePropState] = useState({
@@ -87,19 +97,30 @@ function PropertyList(props) {
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  function zillowAPI(locationArray) {
+  function zillowAPI(address, citystate) {
+    var address = address
+    var citystate = citystate
 
     // console.log("Zestimate document works");
     $.ajax({
       url: "/zillowCall/",
       method: "GET",
-      data: { locationArray }
+      data: { address, citystate }
     }).then(function (response) {
 
       var res = JSON.parse(response)
-      console.log(res.result[0]);
+      // console.log(res.result[0]);
+      setdetails({
+        zestimate: res.result[0].zestimate[0].amount[0]._,
+        highvaluelimit: res.result[0].zestimate[0].valuationRange[0].high[0]._,
+        lowvaluelimit: res.result[0].zestimate[0].valuationRange[0].low[0]._,
+        rentzestimate: res.result[0].rentzestimate[0].amount[0]._,
+        renthighvalue: res.result[0].rentzestimate[0].valuationRange[0].high[0]._,
+        rentlowvalue: res.result[0].rentzestimate[0].valuationRange[0].low[0]._
 
-      console.log(res.result[0].zestimate[0].valuationRange[0].high[0]._);
+      })
+
+      // console.log(res.result[0].zestimate[0].valuationRange[0].high[0]._);
 
       //Builds HOME DETAILS data table
       // $("#code").text(response.data[0].useCode);
@@ -111,16 +132,14 @@ function PropertyList(props) {
 
       //Builds MARKET VALUATION table
 
-      $("#zestimate").text(numberWithCommas(res.result[0].zestimate[0].amount[0]._));
-      $("#highValue").text(numberWithCommas(res.result[0].zestimate[0].valuationRange[0].high[0]._));
-      $("#lowValue").text(numberWithCommas(res.result[0].zestimate[0].valuationRange[0].low[0]._));
 
 
-    })
+
+    }).then(addPropertyDetailsOpen)
 
       .catch(function (error) {
         console.log(error);
-      });
+      })
 
   }
   // let getMapData = async (id) => {
@@ -253,8 +272,14 @@ function PropertyList(props) {
               />
               <p>
                 {/* property details button */}
-                <Button className='propertyDetails' variant="info" size='sm' to='/PropertyDetails' onClick={addPropertyDetailsOpen}> Property Details </Button>
+                <Button className='propertyDetails' variant="info" size='sm' to='/PropertyDetails' onClick={() => { zillowAPI(result.address, result.city + " " + result.state) }}> Property Details </Button>
                 <PropertyDetails _id={result._id}
+                  zestimate={details.zestimate}
+                  highvaluelimit={details.highvaluelimit}
+                  lowvaluelimit={details.lowvaluelimit}
+                  rentzestimate={details.rentzestimate}
+                  renthighvalue={details.renthighvalue}
+                  rentlowvalue={details.rentlowvalue}
                   show={PropertyDetailsState.addPropertyDetailsShow}
                   onHide={addPropertyDetailsClose}
                 />

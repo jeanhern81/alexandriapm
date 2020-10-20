@@ -10,6 +10,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
+var stringify = require('json-stringify-safe');
 const xml2js = require('xml2js');
 const auth = require('./server/routes/auth');
 
@@ -159,12 +160,12 @@ app.get("/zillowCall/", async (req, res) => {
   var locationArray = req.query.locationArray;
   // let address = "3128 MULBERRY STREET";
   // let citystate = "RIVERSIDE CA";
-  let address = locationArray[0];
-  let citystate = locationArray[1] + " " + locationArray[2];
+  let address = req.query.address;
+  let citystate = req.query.citystate;
 
   axios({
     "method": "GET",
-    "url": `http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=${process.env.Zill_KEY}&address=${address}&citystatezip=${citystate}&rentzestimate=true`,
+    "url": `http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1dxir1f12bv_6bk45&address=${address}&citystatezip=${citystate}&rentzestimate=true`,
 
     // "headers": {
     //   "content-type": "application/octet-stream",
@@ -177,11 +178,11 @@ app.get("/zillowCall/", async (req, res) => {
     // }
   })
     .then((api) => {
-      console.log(api.data)
+      console.log(stringify(api))
       xml2js.parseString(api.data, (err, result) => {
         if (err) { throw err };
         const json = JSON.stringify(result["SearchResults:searchresults"].response[0].results[0], null, 4);
-        console.log("The Zillow JSON is: " + json);
+        // console.log("The Zillow JSON is: " + json);
         // res.json(stringify(result["SearchResults:searchresults"])) ;
         res.send(json);
       })
