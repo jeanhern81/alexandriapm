@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
 
 
 import "./App.css";
@@ -10,17 +10,17 @@ import { Properties } from './pages/Properties';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
 
-          <Route exact path='/' component={Home} />
-          <Route path='/home' component={Home} />
-          <Route path='/properties' component={Properties} />
+    <div className="App">
+      <Switch>
 
-        </Switch>
-      </div>
-    </Router>
+        <Route exact path='/' component={Home} />
+        <Route path='/home' component={Home} />
+        <Route path='/properties' component={Properties} />
+
+      </Switch>
+    </div>
+
 
   );
 }

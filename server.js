@@ -54,7 +54,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Mercury35:Jh159@clust
 mongoose.set('debug', true);
 
 
-
+console.log(process.env)
 // Routes
 // ===============================================
 
@@ -178,8 +178,9 @@ app.get("/zillowCall/", async (req, res) => {
     // }
   })
     .then((api) => {
-      console.log(stringify(api))
+      // console.log(stringify(api))
       xml2js.parseString(api.data, (err, result) => {
+        console.log(api.data)
         if (err) { throw err };
         const json = JSON.stringify(result["SearchResults:searchresults"].response[0].results[0], null, 4);
         // console.log("The Zillow JSON is: " + json);

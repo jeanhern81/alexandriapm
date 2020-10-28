@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 //Boostrap
 import { Form, Button, Modal, Image } from 'react-bootstrap';
 //Styling
@@ -14,7 +14,7 @@ export default function SignUpModal(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-
+  const history = useHistory();
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -32,7 +32,7 @@ export default function SignUpModal(props) {
 
 
 
-        })
+        }).then(history.push('/'))
   }
 
   return (
@@ -80,7 +80,7 @@ export default function SignUpModal(props) {
           </Form.Group>
 
 
-          <Button variant="primary" type="submit" to='/client/properties' onClick={props.onHide} >
+          <Button variant="primary" type="submit" onClick={props.onHide} >
             Sign Up
           </Button>
 
