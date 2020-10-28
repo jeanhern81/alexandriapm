@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 
 //Bootstrap
 import { Modal, Button, Form, Image } from "react-bootstrap";
@@ -12,7 +12,8 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
   const [userId, setUserId] = useState("");
-  let history = useHistory();
+  const [historyrf, setHistoryrf] = useState("")
+  const history = useHistory()
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -31,7 +32,7 @@ export default function Login(props) {
           localStorage.setItem("user", JSON.stringify(res._id));
 
         }
-      }).then(history.push("/properties"));
+      }).then(history.push('properties'));
   }
   return (
     <Modal
